@@ -4,11 +4,12 @@ Michael Durst
 This is the skynet HK Aerial assignment for csc 215. Sorry for doing it late
 */
 
-// Decleare needs libraries 
+// Declare needs libraries 
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 using namespace std;
+
 
 int main()
 {
@@ -17,7 +18,7 @@ int main()
 	int searchGridHighNumber = 64;
 	srand(static_cast<unsigned int>(time(0))); // seeding the random number generator
 	int secretNumber = rand() % 64 + 1;
-	// This search algorithim looks at the number between the high and low guesses possibilities
+	// This search algorithim looks at the number between the high and low guess possibilities
 	int targetLocationPrediction =
 		((searchGridHighNumber - searchGridLowNumber) / 2) + searchGridLowNumber;
 	int tries = 0;
@@ -40,14 +41,14 @@ int main()
 		{
 			cout << "The target location of " << targetLocationPrediction << " was higher than the enemy location "  << secretNumber << "." << endl;
 			searchGridHighNumber = targetLocationPrediction; // Assin the high number to this location
-			cout << "The new searchGridHighNumber - " << searchGridHighNumber << "\n"; // let the user know
+			cout << "The new searchGridHighNumber = " << searchGridHighNumber << "\n"; // let the user know
 		}
 		else if(targetLocationPrediction < secretNumber) // if too low
 		{
 			// Same as before but searchGridLowNumber
 			cout << "The target location prediction of " << targetLocationPrediction << "was lower than the enemy location " << secretNumber << "." << endl;
 			searchGridLowNumber = targetLocationPrediction;
-			cout << "The new searchGridLowNumber -" << searchGridLowNumber << "\n";
+			cout << "The new searchGridLowNumber  = " << searchGridLowNumber << "\n";
 		}
 		else // set win condition 
 		{
